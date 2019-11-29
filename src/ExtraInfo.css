@@ -1,0 +1,63 @@
+.extra-info-expanded {
+  background-color: #cccccc;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em 1em 1em ;
+  max-width: 12em;
+  font-size: smaller;
+}
+
+.extra-info-expanded-button {
+  cursor: pointer;
+  top: 0px;
+  right: -0.3em;
+  position: absolute;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #000000;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+}
+.extra-info-expanded-button:hover {
+  color:#ffffff;
+  background-color:#000000;
+}
+
+.extra-info-hiding {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em 1em 0;
+  font-size: larger;
+}
+.extra-info-hiding-button {
+  cursor: pointer;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #000000;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+  height: 5em;
+}
+
+.extra-info-hiding-button:hover {
+  color:#ffffff;
+  background-color:#000000;
+}
+.extra-info-hiding-button:active {
+  color:#BBBBBB;
+  border-color:#BBBBBB;
+}

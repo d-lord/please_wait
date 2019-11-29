@@ -1,3 +1,25 @@
+# Dal stuff
+
+Use `bash deploy.sh` to build a production copy, deploy it to S3 and invalidate the CloudFront cache.
+
+If doing tricky redirection in Lambda@Edge, also upload `./please_wait.html` to the parent folder as a sibling of `please_wait/`. This only needs to be done once, not every deploy, as long as that file continues to exist.
+
+Redirection logic:
+
+- we want visitors to `/please_wait` or `/please_wait/` to receive the React app
+- an existing Lambda@Edge will answer `/please_wait` by transparently serving `/please_wait.html`
+- we want it to instead transparently serve `/please_wait/index.html`
+- but if we create a file _named_ `/please_wait.html` which is just an HTML redirect to `/please_wait/`, then we can create a second rule...
+- which matches on the trailing slash and transparently returns index.html under that slash...
+- so we get this setup:
+- visitor to `/please_wait` receives `/please_wait.html` which redirects them to `/please_wait/` which transparently serves `/please_wait/index.html` (the actual React app)
+- a visitor to `/please_wait/` will skip the first step and go straight to being transparently served `/please_wait/index.html`
+
+This kind of hurt to do and it's not going to feel any better in six months when I try to replicate it. \[dal 2019-11-29\]
+
+
+# create-react-app stuff
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
