@@ -10,7 +10,7 @@ class AutonomousTask extends React.Component {
 
   render() {
     // duration from int ms to seconds + 's'; 0.9 to allow time for choppy CSS vs precise JS
-    let animationDuration = (this.props.duration * 0.9) / 1000 + 's';
+    let animationDuration = (this.props.duration * 0.8) / 1000 + 's';
     let className = "meter animate";
     if (this.props.extras) {
       className += ' ' + this.props.extras;

@@ -8,7 +8,7 @@
 /* stolen shamelessly from: https://css-tricks.com/css3-progress-bars/ */
 /* the background part of the bar */
 .meter {
-	height: 20px;  /* Can be anything */
+	height: 20px;
 	position: relative;
 	background: #555;
 	-moz-border-radius: 25px;
@@ -23,8 +23,8 @@
 .meter > span {
   display: block;
   height: 100%;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   background-color: rgb(43,194,83);
