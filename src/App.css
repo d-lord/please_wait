@@ -1,8 +1,20 @@
 .App {
   text-align: center;
-  margin-top: 2em;
   margin-right: 2em;
   margin-left: 2em;
+  height: 100vh;
+}
+
+#task-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.task {
+  width: 100%;
 }
 
 /* stolen shamelessly from: https://css-tricks.com/css3-progress-bars/ */

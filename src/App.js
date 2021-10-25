@@ -16,7 +16,15 @@ class AutonomousTask extends React.Component {
       className += ' ' + this.props.extras;
     }
     return (
-      <div>
+        /*
+        <div class="task">
+          Reticulating splines...
+          <div class="meter animate">
+            <span style="animationDuration: 5s" />
+          </div>
+        </div>
+        */
+      <div className="task">
         {this.props.text}
         <div className={className}>
           <span style={{ animationDuration: animationDuration }} />
@@ -92,11 +100,13 @@ class App extends React.Component {
       // we use a key for individual tasks because otherwise the progress bar div is reused, and as I don't know how to restart CSS animations, it stays in its previous state, i.e. "full up and not moving"
       mainBody = 
         (
-          <AutonomousTask text={nextTask[1]}
-          duration={nextTask[0]}
-          onCompletion={this.jobComplete}
-          extras={nextTask[2]}
-          key={nextJobIndex}/>
+          <div id="task-container">
+            <AutonomousTask text={nextTask[1]}
+            duration={nextTask[0]}
+            onCompletion={this.jobComplete}
+            extras={nextTask[2]}
+            key={nextJobIndex}/>
+          </div>
         );
     } else {
         mainBody = (
