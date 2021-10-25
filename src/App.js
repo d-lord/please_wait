@@ -88,7 +88,7 @@ class App extends React.Component {
     const nextJobIndex = this.state.nextJobIndex;
     if (nextJobIndex < 0) {
       mainBody = (
-        <div>
+        <div id="top-container">
         <h1 className="title">Please Wait</h1>
         <h2 className="subtitle">the game</h2>
         <StartButton onClick={()=>this.setState({nextJobIndex: 0})} />
@@ -100,7 +100,7 @@ class App extends React.Component {
       // we use a key for individual tasks because otherwise the progress bar div is reused, and as I don't know how to restart CSS animations, it stays in its previous state, i.e. "full up and not moving"
       mainBody = 
         (
-          <div id="task-container">
+          <div id="top-container">
             <AutonomousTask text={nextTask[1]}
             duration={nextTask[0]}
             onCompletion={this.jobComplete}
@@ -110,8 +110,8 @@ class App extends React.Component {
         );
     } else {
         mainBody = (
-          <div>
-          <h1>All done!</h1>
+          <div id="top-container">
+          <h1 className="title">All done!</h1>
           <StartButton firstTime={false} onClick={()=>this.setState({nextJobIndex: 0})} />
           </div>
         );
