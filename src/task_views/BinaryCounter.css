@@ -1,0 +1,34 @@
+.dot-outer {
+    background: radial-gradient(transparent 69%, black 69%, black 71%, transparent 71%);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.dot-inner.full {
+    background: radial-gradient(cyan 69%, rgba(0, 0, 0, 0%) 69%);
+
+}
+.dot-inner.empty {
+    color: transparent;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+}
+
+.dots {
+    display: flex;
+    flex-direction: row;
+}
+.dots.flipped {
+    flex-direction: row-reverse;
+}
