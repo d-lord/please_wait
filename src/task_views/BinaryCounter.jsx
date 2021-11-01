@@ -52,10 +52,10 @@ class BinaryCounter extends TaskView {
             <div className="task">
                 <h1>{this.props.text}</h1>
                 <div className={dots_class}>
-                    <BinaryDot full={((underlying_number & 8) > 0)}/>
-                    <BinaryDot full={((underlying_number & 4) > 0)}/>
-                    <BinaryDot full={((underlying_number & 2) > 0)}/>
-                    <BinaryDot full={((underlying_number & 1) > 0)}/>
+                    <BinaryDot full={((underlying_number & 8) > 0)} static={this.state.ticks === 0}/>
+                    <BinaryDot full={((underlying_number & 4) > 0)} static={this.state.ticks === 0}/>
+                    <BinaryDot full={((underlying_number & 2) > 0)} static={this.state.ticks === 0}/>
+                    <BinaryDot full={((underlying_number & 1) > 0)} static={this.state.ticks === 0}/>
                 </div>
                 <h2>{tick_text}</h2>
             </div>
@@ -70,6 +70,10 @@ class BinaryDot extends React.Component {
             innerClassName += " full";
         } else {
             innerClassName += " empty";
+        }
+        if (this.props.static) {
+            /* then it should not animate *to* the intended state; just start in that state */
+            innerClassName += " static";
         }
         return (
             <div className="dot-outer">
