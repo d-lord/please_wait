@@ -4,6 +4,7 @@ import ExtraInfo from './ExtraInfo.js';
 import SimpleBar from './task_views/SimpleBar.jsx';
 import DoubleCircleTask from './task_views/DoubleCircleTask.jsx';
 import BinaryCounter from './task_views/BinaryCounter.jsx';
+import PsychedelicBoxer from './task_views/PsychedelicBoxer.jsx';
 
 
 function StartButton(props) {
@@ -48,7 +49,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.tasks = [
-      new Task(1000, 'Setting up...', SimpleBar),
+      new Task(3000, 'Starting up...', SimpleBar),
       new Task(2000, 'Reticulating splines...'),
       new Task(2000, 'Untangling splines...'),
 
@@ -63,17 +64,22 @@ class App extends React.Component {
       new Task(2000, 'Deploying new cloud...'),
       new Task(4000, 'Writing more loading messages...', null, {flipped: true}),
 
+      new Task(3000, 'Dropping acid...', SimpleBar),
+      new Task(3000, 'emptying mind...', SimpleBar, {flipped: true}),
+      new Task(8400, 'floating...', PsychedelicBoxer),
+      new Task(8400, 'coming down...', PsychedelicBoxer, {green: true}),
+
+      new Task(3500, 'processing...', SimpleBar),
+      new Task(3500, 'Turning off and on again...', SimpleBar, {unfill: true}),
+      new Task(3500, 'Turning off and on again...', SimpleBar),
+
       new Task(1500, 'Giving you up...'),
       new Task(500, 'Letting you down...'),
       new Task(500, 'Running around...'),
       new Task(500, 'Deserting you...'),
 
-      new Task(2000, 'Rewriting loading bar...'),
-      new Task(3500, 'Turning off and on again...', SimpleBar, {unfill: true}),
-      new Task(3500, 'Turning off and on again...', SimpleBar),
-
       new Task(1500, 'Tidying up...'),
-      new Task(1500, 'Waving goodbye 👋'),
+      new Task(3000, 'Waving goodbye 👋'),
     ];
     // NB: set nextTaskIndex to -1 for normal mode, or 0 to skip the start screen
     this.state = { nextTaskIndex: -1, showExtraInfo: false };
@@ -152,9 +158,15 @@ class App extends React.Component {
                         duration={task.duration}
                         onCompletion={this.jobComplete}
                         key={taskIndex}
-                        show_border={true}
+                        extras={task.extras}/>
+    } else if (task.displayComponent === PsychedelicBoxer) {
+      return <PsychedelicBoxer text={task.message}
+                        duration={task.duration}
+                        onCompletion={this.jobComplete}
+                        key={taskIndex}
                         extras={task.extras}/>
     }
+    throw new Error("Unknown DisplayComponent type");
   }
 }
 

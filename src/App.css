@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  margin-right: 2em;
-  margin-left: 2em;
+  margin-inline: 0;
   height: 100vh;
 }
 #root {
