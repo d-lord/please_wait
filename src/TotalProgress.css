@@ -1,0 +1,80 @@
+.total-progress {
+    display: flex;
+    /*justify-content: space-between;*/
+    position: absolute;
+    top: 0;
+    left: 0.5vw;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    box-sizing: border-box;
+}
+
+.total-progress-box {
+    width: 1em;
+    height: 1em;
+    border: 1px solid black;
+}
+.total-progress-box:first-of-type {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.total-progress-box:last-of-type {
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
+
+.total-progress-box-done {
+    background-color: #555;
+    background-color: #ccc;
+}
+
+.total-progress-box-current {
+  background-color: rgb(43,194,83);
+  background-image: linear-gradient(
+    135deg,
+    red 37%,
+    red 69%
+  );
+  box-shadow:
+    inset 0 2px 9px  rgba(255,255,255,0.3),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+}
+.total-progress-box-current:after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, .4) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, .4) 50%,
+    rgba(255, 255, 255, .4) 75%,
+    transparent 75%,
+    transparent
+  );
+  z-index: 1;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+
+.total-progress-box-not-started {
+    background-color: #ccc;
+}

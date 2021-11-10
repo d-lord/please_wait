@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ExtraInfo from './ExtraInfo.js';
+import TotalProgress from './TotalProgress.jsx';
 import SimpleBar from './task_views/SimpleBar.jsx';
 import DoubleCircleTask from './task_views/DoubleCircleTask.jsx';
 import BinaryCounter from './task_views/BinaryCounter.jsx';
@@ -64,8 +65,7 @@ class App extends React.Component {
       new Task(2000, 'Deploying new cloud...'),
       new Task(4000, 'Writing more loading messages...', null, {flipped: true}),
 
-      new Task(3000, 'Dropping acid...', SimpleBar),
-      new Task(3000, 'emptying mind...', SimpleBar, {flipped: true}),
+      new Task(3000, 'emptying mind...', SimpleBar),
       new Task(8400, 'floating...', PsychedelicBoxer),
       new Task(8400, 'coming down...', PsychedelicBoxer, {green: true}),
 
@@ -82,7 +82,7 @@ class App extends React.Component {
       new Task(3000, 'Waving goodbye 👋'),
     ];
     // NB: set nextTaskIndex to -1 for normal mode, or 0 to skip the start screen
-    this.state = { nextTaskIndex: -1, showExtraInfo: false };
+    this.state = { nextTaskIndex: 0, showExtraInfo: false };
     this.jobComplete = this.jobComplete.bind(this);
     this.toggleShowExtraInfo = this.toggleShowExtraInfo.bind(this);
   }
@@ -107,6 +107,7 @@ class App extends React.Component {
       mainBody =
         (
           <div id="top-container">
+            <TotalProgress tasks={this.tasks} currentTaskIndex={nextTaskIndex} />
             {taskTag}
           </div>
         );
@@ -133,6 +134,7 @@ class App extends React.Component {
     this.setState((prevState, props) => ({
       nextTaskIndex: prevState.nextTaskIndex + 1}));
     // see: https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous
+
   }
 
   toggleShowExtraInfo() {
