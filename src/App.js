@@ -5,6 +5,7 @@ import SimpleBar from './task_views/SimpleBar.jsx';
 import DoubleCircleTask from './task_views/DoubleCircleTask.jsx';
 import BinaryCounter from './task_views/BinaryCounter.jsx';
 import PsychedelicBoxer from './task_views/PsychedelicBoxer.jsx';
+import MergeSorter from "./task_views/MergeSorter.jsx";
 
 
 function StartButton(props) {
@@ -58,6 +59,9 @@ class App extends React.Component {
       new Task(8000, 'Counting back down...', BinaryCounter, {flipped: true}),
       new Task(4000, 'Loading previous loading bar...', null, {flipped: true}),
 
+      new Task(1000, 'Implementing merge sort...', SimpleBar),
+      new Task(8000, 'Implementing merge sort...', MergeSorter),
+
       new Task(2000, 'Fireproofing servers...'),
       new Task(1000, 'Starting fires...'),
       new Task(2000, 'Waiting for the cloud to stop raining...'),
@@ -73,10 +77,10 @@ class App extends React.Component {
       new Task(3500, 'Turning off and on again...', SimpleBar, {unfill: true}),
       new Task(3500, 'Turning off and on again...', SimpleBar),
 
-      new Task(1500, 'Giving you up...'),
-      new Task(500, 'Letting you down...'),
-      new Task(500, 'Running around...'),
-      new Task(500, 'Deserting you...'),
+      // new Task(1500, 'Giving you up...'),
+      // new Task(500, 'Letting you down...'),
+      // new Task(500, 'Running around...'),
+      // new Task(500, 'Deserting you...'),
 
       new Task(1500, 'Tidying up...'),
       new Task(3000, 'Waving goodbye 👋'),
@@ -165,6 +169,10 @@ class App extends React.Component {
                         onCompletion={this.jobComplete}
                         key={taskIndex}
                         extras={task.extras}/>
+    } else if (task.displayComponent === MergeSorter) {
+      return <MergeSorter duration={task.duration}
+                          onCompletion={this.jobComplete}
+                          key={taskIndex}/>
     }
     throw new Error("Unknown DisplayComponent type");
   }

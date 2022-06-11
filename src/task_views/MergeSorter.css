@@ -1,0 +1,59 @@
+.merge-sorter {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.merge-sorter .col {
+    /* fill the width ...*/
+    flex-grow: 1;
+    /* ... but evenly. */
+    flex-basis: 0;
+    /* flex on its children (distribute them vertically) */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.merge-sorter .col .cluster {
+    /* a cluster of items */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: start;
+}
+
+/* | a |   |   |  four columns
+ * | b |          one cluster
+ * |   |
+ * | c |          another cluster
+ * | d |          of two items
+ */
+
+.merge-sorter .col:nth-child(2n) {
+    background-color: #cccccc;
+}
+
+.merge-sorter .col:nth-child(2n-1) {
+    background-color: #bbb;
+}
+
+.merge-sorter-item {
+    /* a single box */
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 50%;
+    text-align: center;
+    margin-inline: auto;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+
+.merge-sorter-item p {
+    /* gotta constrain the <p> tag's hunger for vertical pixels */
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
