@@ -19,7 +19,6 @@
 
 .start-button {
   /* color: white; */
-  height: 60px;
   min-width: 160px;
   /* background: linear-gradient(-45deg, #ff8a00, #e52e71); */
   /* background: radial-gradient(#ff8a00, #e52e71); */
@@ -27,7 +26,6 @@
   /* background: #555; */
   /* border-radius: 10px; */
   font-size: 1em;
-  margin-top: 1em;
   cursor: pointer;
   display:inline-block;
   padding:0.35em 1.2em;
