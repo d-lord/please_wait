@@ -59,7 +59,7 @@ class App extends React.Component {
       new Task(8000, 'Counting back down...', BinaryCounter, {flipped: true}),
       new Task(4000, 'Loading previous loading bar...', null, {flipped: true}),
 
-      new Task(1000, 'Implementing merge sort...', SimpleBar),
+      new Task(1500, 'Implementing merge sort...', SimpleBar),
       new Task(8000, 'Implementing merge sort...', MergeSorter),
 
       new Task(2000, 'Fireproofing servers...'),
@@ -69,7 +69,6 @@ class App extends React.Component {
       new Task(4000, 'Writing more loading messages...', null, {flipped: true}),
 
       new Task(3000, 'Dropping acid...', SimpleBar),
-      new Task(3000, 'emptying mind...', SimpleBar, {flipped: true}),
       new Task(8400, 'floating...', PsychedelicBoxer),
       new Task(8400, 'coming down...', PsychedelicBoxer, {green: true}),
 
