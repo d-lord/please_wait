@@ -62,19 +62,19 @@ class App extends React.Component {
       new Task(1500, 'Implementing merge sort...', SimpleBar),
       new Task(8000, 'Implementing merge sort...', MergeSorter),
 
-      new Task(2000, 'Fireproofing servers...'),
-      new Task(1000, 'Starting fires...'),
-      new Task(2000, 'Waiting for the cloud to stop raining...'),
-      new Task(2000, 'Deploying new cloud...'),
-      new Task(4000, 'Writing more loading messages...', null, {flipped: true}),
+      // new Task(2000, 'Fireproofing servers...'),
+      // new Task(1000, 'Starting fires...'),
+      // new Task(2000, 'Waiting for the cloud to stop raining...'),
+      // new Task(2000, 'Deploying new cloud...'),
+      // new Task(4000, 'Writing more loading messages...', null, {flipped: true}),
 
-      new Task(3000, 'Dropping acid...', SimpleBar),
-      new Task(8400, 'floating...', PsychedelicBoxer),
-      new Task(8400, 'coming down...', PsychedelicBoxer, {green: true}),
+      new Task(2000, 'Dropping acid...', SimpleBar),
+      new Task(4200, 'floating...', PsychedelicBoxer),
+      new Task(4200, 'coming down...', PsychedelicBoxer, {green: true}),
 
-      new Task(3500, 'processing...', SimpleBar),
-      new Task(3500, 'Turning off and on again...', SimpleBar, {unfill: true}),
-      new Task(3500, 'Turning off and on again...', SimpleBar),
+      // new Task(3500, 'processing...', SimpleBar),
+      new Task(2000, 'Turning off and on again...', SimpleBar, {unfill: true}),
+      new Task(2000, 'Turning off and on again...', SimpleBar),
 
       // new Task(1500, 'Giving you up...'),
       // new Task(500, 'Letting you down...'),
@@ -82,7 +82,7 @@ class App extends React.Component {
       // new Task(500, 'Deserting you...'),
 
       new Task(1500, 'Tidying up...'),
-      new Task(3000, 'Waving goodbye 👋'),
+      // new Task(3000, 'Waving goodbye 👋'),
     ];
     // NB: set nextTaskIndex to -1 for normal mode, or 0 to skip the start screen
     this.state = { nextTaskIndex: -1, showExtraInfo: false };
