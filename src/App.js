@@ -60,7 +60,7 @@ class App extends React.Component {
       new Task(4000, 'Loading previous loading bar...', null, {flipped: true}),
 
       new Task(1500, 'Implementing merge sort...', SimpleBar),
-      new Task(8000, 'Implementing merge sort...', MergeSorter),
+      new Task(25000, 'Implementing merge sort...', MergeSorter, {delay_at_end: 9000}),
 
       // new Task(2000, 'Fireproofing servers...'),
       // new Task(1000, 'Starting fires...'),
@@ -153,25 +153,26 @@ class App extends React.Component {
       return <BinaryCounter text={task.message}
                             duration={task.duration}
                             onCompletion={this.jobComplete}
-                            key={taskIndex}
+                            key={`task-${taskIndex}`}
                             show_border={true}
                             extras={task.extras}/>
     } else if (task.displayComponent === SimpleBar || task.displayComponent == null) {
       return <SimpleBar text={task.message}
                         duration={task.duration}
                         onCompletion={this.jobComplete}
-                        key={taskIndex}
+                        key={`task-${taskIndex}`}
                         extras={task.extras}/>
     } else if (task.displayComponent === PsychedelicBoxer) {
       return <PsychedelicBoxer text={task.message}
                         duration={task.duration}
                         onCompletion={this.jobComplete}
-                        key={taskIndex}
+                        key={`task-${taskIndex}`}
                         extras={task.extras}/>
     } else if (task.displayComponent === MergeSorter) {
       return <MergeSorter duration={task.duration}
                           onCompletion={this.jobComplete}
-                          key={taskIndex}/>
+                          key={`task-${taskIndex}`}
+                          extras={task.extras}/>
     }
     throw new Error("Unknown DisplayComponent type");
   }

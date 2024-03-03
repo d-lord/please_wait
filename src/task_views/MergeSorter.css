@@ -33,12 +33,58 @@
  * | d |          of two items
  */
 
-.merge-sorter .col:nth-child(2n) {
-    background-color: #cccccc;
+.merge-sorter .col {
+    --base-color: floralwhite;
+    background-color: var(--base-color, red);  /* makes mistakes nice and visible */
 }
 
-.merge-sorter .col:nth-child(2n-1) {
-    background-color: #bbb;
+.merge-sorter .col:nth-child(1) {
+    --base-color: #fabdff;
+    --filled-color: #fabdff;
+}
+
+.merge-sorter .col:nth-child(2) {
+    --base-color: floralwhite;
+    --filled-color: #ffb7e5;
+}
+
+.merge-sorter .col:nth-child(3) {
+    --base-color: floralwhite;
+    --filled-color: #ffb9bf;
+}
+
+.merge-sorter .col:nth-child(4) {
+    --filled-color: #ffc797;
+}
+
+.merge-sorter .col:nth-child(5) {
+    --filled-color: #ffdf78;
+}
+
+.merge-sorter .col:nth-child(6) {
+    --filled-color: #f9f871;
+}
+
+.merge-sorter .wash {
+    --duration: 1s;
+    animation: var(--duration) ease-in-out 1 forwards forwards;
+    animation-name: column-wash;
+}
+
+@keyframes column-wash {
+    from {
+        /* A wash of colour. Fiddle with the gradient direction and background position & size to determine whether it washes
+        vertically or horizontally, and up/left vs down/right.
+         */
+        background: linear-gradient(to bottom, var(--filled-color) 50%, var(--base-color) 50%);
+        background-size: 100% 200%;
+        background-position: right bottom;
+    }
+    to {
+        background: linear-gradient(to bottom, var(--filled-color) 50%, var(--base-color) 50%);
+        background-size: 100% 200%;
+        background-position: right top;
+    }
 }
 
 .merge-sorter-item {
@@ -50,10 +96,51 @@
     margin-inline: auto;
     margin-top: 0.1em;
     margin-bottom: 0.1em;
+    /* this is bad, but an interesting concept because it suddenly looks like stacking cards:
+        transform: scaleY(1.8);
+     * it violates the box model in a way that simply setting 'height' doesn't
+    */
+}
+
+.merge-sorter-item.pop-in {
+    animation: pop-in 0.4s ease-in-out;
+    animation-delay: 0.1s;
+}
+
+@keyframes pop-in {
+    from {
+        transform: scaleX(0.4);
+        opacity: 0.5;
+    }
+    80% {
+        transform: scaleX(1.2);
+        opacity: 1.0;
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
 
 .merge-sorter-item p {
     /* gotta constrain the <p> tag's hunger for vertical pixels */
     margin-top: 0.2em;
     margin-bottom: 0.2em;
+}
+
+.merge-sorter #end-phase-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    height: 2em;
+    width: 0;
+    --delay: 0;
+}
+#end-phase-bar.merge-sorter.showtime {
+    animation: end-phase-bar var(--duration, 1s) linear;
+    animation-delay: var(--delay, 0s);
+}
+@keyframes end-phase-bar {
+    from { width: 0; height: 1em;}
+    to { width: 100%; height: 1em; }
 }
